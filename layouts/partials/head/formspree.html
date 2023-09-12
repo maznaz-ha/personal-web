@@ -1,5 +1,30 @@
 <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+{{- with site.Params.accentColor }}
 <script>
   window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
-  formbutton("create", {action: "https://formspree.io/f/xbjvkjwv"})
+  formbutton("create", {
+    action: "https://formspree.io/f/xbjvkjwv",
+    styles: {
+      title: {
+        backgroundColor: "{{ . }}"
+      },
+      button: {
+        backgroundColor: "{{ . }}"
+      }
+    }
+    })
+</script>
+{{- end }}
+<script type="text/javascript">
+
+    // Wait for the page to load first
+    window.onload = function() {
+
+      var a = document.getElementById("emailNot");
+
+      a.onclick = function() {
+        document.getElementById('formbutton-button').click();
+        return false;
+      }
+    }
 </script>
