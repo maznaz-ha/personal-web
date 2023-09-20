@@ -20,11 +20,13 @@
     // Wait for the page to load first
     window.onload = function() {
 
-      var a = document.getElementById("emailNot");
+      var a = document.getElementsByClassName('emailNot');
 
-      a.onclick = function() {
-        document.getElementById('formbutton-button').click();
-        return false;
+      for (var i = a.length; i--;) {
+        a[i].onclick = function() {
+          document.getElementById('formbutton-button').click();
+          return false;
+        }
       }
     }
 </script>
